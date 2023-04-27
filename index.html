@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Therapy Case Study Form</title>
+    <style>
+      .form-group {
+        display: none;
+      }
+
+      .form-group.active {
+        display: block;
+        animation: fadeIn 0.3s linear;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .btn-primary {
+        background-color: #0070c9;
+        border-color: #0070c9;
+      }
+
+      .btn-secondary {
+        color: #0070c9;
+        background-color: transparent;
+        border-color: #0070c9;
+      }
+
+      .form-navigation {
+        padding: 16px 0;
+      }
+
+      .typing-animation {
+        font-style: italic;
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Therapy Case Study Form</h1>
+      <form id="questionnaire">
+        <div class="form-group form-step active">
+          <label for="name">Full Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter full name" required pattern="^[a-zA-Z\s]+$">
+          <div class="typing-animation" data-examples='["John Doe", "Jane Smith", "Mike Johnson"]'></div>
+        </div>
+        <div class="form-group form-step">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" class="form-control" id="dob" required>
+        </div>
+        <div class="form-group form-step">
+          <label for="gender">Gender:</label>
+          <select class="form-control" id="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group form-step">
+          <label for="occupation">Occupation:</label>
+          <input type="text" class="form-control" id="occupation" placeholder="Enter your occupation" required>
+          <div class="typing-animation" data-examples='["Firefighter", "Business Development Specialist", "Administrative Assistant", "Student"]'></div>
+        </div>
+        <div class="form-group form-step">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          <div class="typing-animation" data-examples='["john.doe@example.com", "jane.smith@example.org"]'></div>
+        </div>
+        <div class="form-group form-step">
+          <label for="phone">Phone:</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$">
+          <div class="typing-animation" data-examples='["+1 (555) 123-4567", "555-123-4567"]'></div>
+        </div>
+        <!-- Current medications -->
+        <div class="form-group form-step">
+          <label for="medications">Current medications (if any):</label>
+          <textarea class="form-control" id="medications" rows="3" placeholder="List your current medications"></textarea>
+          <div class="typing-animation" data-examples='["Lisinopril, Metformin, Atorvastatin", "None"]'></div>
+        </div>
+        <!-- Previous diagnoses -->
+        <div class="form-group form-step">
+          <label for="previousDiagnoses">Previous diagnoses (if any):</label>
+          <textarea class="form-control" id="previousDiagnoses" rows="3" placeholder="List your previous diagnoses"></textarea>
+          <div class="typing-animation" data-examples='["Anxiety Disorder, ADHD", "None"]'></div>
+        </div>
+        <!-- Family history -->
+        <div class="form-group form-step">
+          <label for="familyHistory">Family history of mental health issues (if any):</label>
+          <textarea class="form-control" id="familyHistory" rows="3" placeholder="Describe your family history of mental health issues"></textarea>
+          <div class="typing-animation" data-examples='["Mother has depression, brother has anxiety", "No known history"]'></div>
+        </div>
+        <!-- Main concerns -->
+        <div class="form-group form-step">
+          <label for="mainConcerns">Main concerns or problems:</label>
+          <textarea class="form-control" id="mainConcerns" rows="3" placeholder="Describe your main concerns or problems" required></textarea>
+          <div class="typing-animation" data-examples='["Feeling overwhelmed, difficulty concentrating", "Constant worry, trouble sleeping"]'></div>
+        </div>
+        <!-- Duration of symptoms -->
+        <div class="form-group form-step">
+          <label for="duration">Duration of symptoms:</label>
+          <input type="text" class="form-control" id="duration" placeholder="Enter the duration of your symptoms" required>
+          <div class="typing-animation" data-examples='["6 months", "2 years"]'></div>
+        </div>
+        <!-- Severity of symptoms -->
+        <div class="form-group form-step">
+          <label for="severity">Severity of symptoms:</label>
+          <input type="range" class="form-control-range" id="severity" min="1" max="10" required>
+        </div>
+        <!-- Sleep patterns -->
+        <div class="form-group form-step">
+          <label for="sleepPatterns">Sleep patterns:</label>
+          <input type="text" class="form-control" id="sleepPatterns" placeholder="Describe your sleep patterns" required>
+          <div class="typing-animation" data-examples='["Difficulty falling asleep, wake up multiple times", "Sleep 7 hours, but feel tired during the day"]'></div>
+        </div>
+        <!-- Exercise habits -->
+        <div class="form-group form-step">
+          <label for="exerciseHabits">Exercise habits:</label>
+          <input type="text" class="form-control" id="exerciseHabits" placeholder="Describe your exercise habits" required>
+          <div class="typing-animation" data-examples='["Run 3 times a week, yoga twice a week", "Occasionally walk, no regular exercise"]'></div>
+        </div>
+        <!-- Diet and nutrition -->
+        <div class="form-group form-step">
+          <label for="diet">Diet and nutrition:</label>
+          <input type="text" class="form-control" id="diet" placeholder="Describe your diet and nutrition" required>
+          <div class="typing-animation" data-examples='["Balanced diet with fruits, vegetables, and lean protein", "Mostly fast food, limited fruits and vegetables"]'></div>
+        </div>
+        <!-- Substance use -->
+        <div class="form-group form-step">
+          <label for="substanceUse">Substance use (alcohol, tobacco, drugs):</label>
+          <input type="text" class="form-control" id="substanceUse" placeholder="Describe your substance use" required>
+          <div class="typing-animation" data-examples='["Occasional social drinker, non-smoker", "Daily smoker, marijuana use on weekends"]'></div>
+        </div>
+        <!-- Support system -->
+        <div class="form-group form-step">
+          <label for="supportSystem">Support system (family, friends, community):</label>
+          <input type="text" class="form-control" id="supportSystem" placeholder="Describe your support system" required>
+          <div class="typing-animation" data-examples='["Close-knit family, several close friends", "Distant family, few friends"]'></div>
+        </div>
+        <!-- Relationship status -->
+        <div class="form-group form-step">
+          <label for="relationshipStatus">Relationship status:</label>
+          <input type="text" class="form-control" id="relationshipStatus" placeholder="Describe your relationship status" required>
+          <div class="typing-animation" data-examples='["Married, two children", "Single, dating"]'></div>
+        </div>
+        <!-- Work or school stressors -->
+        <div class="form-group form-step">
+          <label for="workStressors">Work or school stressors:</label>
+          <textarea class="form-control" id="workStressors" rows="3" placeholder="Describe your work or school stressors" required></textarea>
+          <div class="typing-animation" data-examples='["Heavy workload, tight deadlines", "Difficult coursework, pressure to maintain grades"]'></div>
+        </div>
+        <!-- Recent life events -->
+        <div class="form-group form-step">
+          <label for="recentLifeEvents">Recent life events (e.g., loss, trauma, changes):</label>
+          <textarea class="form-control" id="recentLifeEvents" rows="3" placeholder="Describe any recent life events" required></textarea>
+          <div class="typing-animation" data-examples='["Lost job, recent divorce", "Moved to a new city, started a new job"]'></div>
+        </div>
+        <!-- Desired outcomes -->
+        <div class="form-group form-step">
+          <label for="desiredOutcomes">Desired outcomes and goals:</label>
+          <textarea class="form-control" id="desiredOutcomes" rows="3" placeholder="Describe your desired outcomes and goals" required></textarea>
+          <div class="typing-animation" data-examples='["Reduce anxiety, improve focus", "Build healthy coping strategies, increase self-esteem"]'></div>
+        </div>
+        <!-- Treatment preferences -->
+        <div class="form-group form-step">
+          <label for="treatmentPreferences">Treatment preferences (e.g., individual therapy, group therapy, medication):</label>
+          <textarea class="form-control" id="treatmentPreferences" rows="3" placeholder="Describe your treatment preferences" required></textarea>
+          <div class="typing-animation" data-examples='["Individual therapy, open to medication", "Group therapy, no medication"]'></div>
+        </div>
+        <!-- Availability and scheduling preferences -->
+        <div class="form-group form-step">
+          <label for="availability">Availability and scheduling preferences:</label>
+          <label for="availability">Availability and scheduling preferences:</label>
+          <textarea class="form-control" id="availability" rows="3" placeholder="Describe your availability and scheduling preferences" required></textarea>
+          <div class="typing-animation" data-examples='["Weekday evenings after 6pm", "Monday and Wednesday mornings, flexible on weekends"]'></div>
+        </div>
+        <!-- Additional information -->
+        <div class="form-group form-step">
+          <label for="additionalInformation">Any other relevant information you would like to share:</label>
+          <textarea class="form-control" id="additionalInformation" rows="3" placeholder="Provide any additional information"></textarea>
+          <div class="typing-animation" data-examples='["Previously participated in therapy", "Suffer from chronic pain"]'></div>
+        </div>
+        <div class="form-navigation">
+          <button type="button" class="btn btn-secondary btn-previous">Previous</button>
+          <button type="button" class="btn btn-primary btn-next">Next</button>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+        <button type="button" class="btn btn-secondary">Save and Continue Later</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function() {
+        let formSteps = $('.form-step');
+        let currentStep = 0;
+
+        function showStep(index) {
+          formSteps.removeClass('active').eq(index).addClass('active');
+          if (index === formSteps.length - 1) {
+            $('.btn-next').hide();
+            $('.btn-submit').show();
+          } else {
+            $('.btn-next').show();
+            $('.btn-submit').hide();
+          }
+          if (index === 0) {
+            $('.btn-previous').hide();
+          } else {
+            $('.btn-previous').show();
+          }
+        }
+        showStep(currentStep);
+        $('.btn-next').on('click', function() {
+          if (currentStep < formSteps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+          }
+        });
+        $('.btn-previous').on('click', function() {
+          if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+          }
+        });
+        $('#questionnaire').on('submit', function(e) {
+          e.preventDefault();
+          // Handle form submission here, e.g., send data to the server
+          console.log('Form submitted');
+        });
+      });
+
+      function typeExample(index, el) {
+        let examples = JSON.parse($(el).attr('data-examples'));
+        let example = examples[index % examples.length];
+        let i = 0;
+        let typingInterval = setInterval(function() {
+          if (i < example.length) {
+            el.textContent += example[i];
+            i++;
+          } else {
+            clearInterval(typingInterval);
+            setTimeout(function() {
+              let deleteInterval = setInterval(function() {
+                if (i > 0) {
+                  el.textContent = el.textContent.slice(0, -1);
+                  i--;
+                } else {
+                  clearInterval(deleteInterval);
+                  setTimeout(function() {
+                    typeExample(index + 1, el);
+                  }, 1000);
+                }
+              }, 50);
+            }, 2000);
+          }
+        }, 100);
+      }
+      $('.typing-animation').each(function(index, el) {
+        typeExample(0, el);
+      });
+    </script>
+    </body>
+</html>
